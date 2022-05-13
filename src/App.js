@@ -1,13 +1,18 @@
 
 import './App.css';
+import Navbar from './component/Navbar';
+import Textform from './component/Textform';
 
 function App() {
+  let title ="TextUtils";
   return (
-    <div className="App">
-     
-          Learn React Prbhat
-      
-    </div>
+   
+    <>
+   <Navbar/>
+   <div className="container">
+   <Textform title={title}/>
+   </div>
+   </>
   );
 }
 
