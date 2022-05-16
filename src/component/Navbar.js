@@ -33,6 +33,18 @@ export default function Navbar() {
               About 
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/ShowAPIData">
+              ShowAPIData 
+              </Link>
+              
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/Multistepform">
+              Multistepform
+              </Link>
+            </li>
+           
           </ul>
           <form className="d-flex">
             <input
