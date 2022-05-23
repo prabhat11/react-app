@@ -35,13 +35,28 @@ export default function Navbar() {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/ShowAPIData">
-              ShowAPIData 
+              ListAPI 
               </Link>
               
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/Multistepform">
-              Multistepform
+              MultiStepForm
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/Multistepform">
+              Create
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/Multistepform">
+              Update
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/Multistepform">
+              Search
               </Link>
             </li>
            
