@@ -45,7 +45,7 @@ export default function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/Multistepform">
+              <Link className="nav-link" to="/Create">
               Create
               </Link>
             </li>
@@ -57,6 +57,11 @@ export default function Navbar() {
             <li className="nav-item">
               <Link className="nav-link" to="/Multistepform">
               Search
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/ProdudctList">
+              CRUD
               </Link>
             </li>
            
