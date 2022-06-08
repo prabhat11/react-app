@@ -1,31 +1,32 @@
 
 import axios from 'axios';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class Create extends Component {
-  constructor(){
+ class Create extends Component {
+/*    constructor(){
     super();
     this.state={
       id:'',
       title:'',
       author:''
-    }
+    } 
     this.changeId=this.changeId.bind(this);
     this.changeTitle=this.changeTitle.bind(this);
     this.changeAuthor=this.changeAuthor.bind(this);
     this.addPost=this.addPost.bind(this);
-  }
-    changeId(event){
+  } */
+    changeId =(event)=>{
       this.setState({id: event.target.value});
     };
-     changeTitle(event){
+     changeTitle =(event)=>{
       this.setState({title: event.target.value});
     }
-    changeAuthor(event){
+    changeAuthor= (event)=>{
       this.setState({author: event.target.value});
     }
  
-    addPost(event){
+   addPost= (event)=> {
        event.preventDefault();
        let data={
          "id":this.state.id,
@@ -36,8 +37,14 @@ export default class Create extends Component {
       .then(response => {
       console.log(response.status);
       console.log(response.data);
-      this.ref.addPost.reset();
-      })
+      /* this.ref.addPost.reset(); */
+      if(response.status===201){
+        this.props.dispatch({
+         type : 'ADD_POST',
+         post : response.data
+        })}
+       })
+     
       .catch(error =>{console.log(error)});
     }
      
@@ -64,4 +71,11 @@ export default class Create extends Component {
     );
   }
 }
+/* const mapStateToProps =(state) => {
+  return {
+    posts: state
+}
+} */
+
+export default connect()(Create);
 

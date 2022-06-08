@@ -1,25 +1,36 @@
 import axios from "axios";
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
-export default class ProductRows extends Component {
-  constructor(props) {
-    super(props);
-    this.deletPostsById = this.deletPostsById.bind(this);
+ class ProductRows extends Component {
+
+  deletPostsById = () =>{
+    axios.delete("http://localhost:3000/posts/"+ this.props.post.id)
+    .then((response) =>{
+      if(response.status===200){
+       this.props.dispatch({
+        type : 'DELETE_POST',
+        id : this.props.post.id,
+       })}
+      })
+      .catch(error => console.error(error))
   }
-  deletPostsById(){
-    axios.delete("http://localhost:3000/posts/"+this.props.post.id)
-    .then(response =>console.log(response.status))
-    .catch(error => console.error(error))
+  add =()=>{
+    let addenble= 'true'
 
   }
 
   render() {
     return (
+      <>
       <tr>
         <td>{this.props.post.id}</td>
         <td>{this.props.post.title}</td>
         <td>{this.props.post.author}</td>
         <td>
+        <button type="button" className="btn btn-primary" onClick={this.add}>
+            Add
+          </button>
           <button type="button" className="btn btn-danger" onClick={this.deletPostsById}>
             Delete
           </button>
@@ -28,6 +39,15 @@ export default class ProductRows extends Component {
           </button>
         </td>
       </tr>
+      
+      </>
     );
   }
 }
+
+/* const mapStateToProps=(state)=> {
+  return {
+       posts: state
+  }
+} */
+export default connect()(ProductRows);
